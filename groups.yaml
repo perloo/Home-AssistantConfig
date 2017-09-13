@@ -1,0 +1,103 @@
+livingroom:
+  name: Livingroom
+  view: false
+  entities:
+  - group.livingroom_switches
+  - group.livingroom_flowers
+  - group.livingroom_tv_corner
+
+livingroom_switches:
+  name: 'Livingroom switches'
+  view: false
+  entities:
+  - switch.livingroom_1
+  - switch.livingroom_2
+  - switch.livingroom_3
+  - switch.livingroom_4
+  - switch.balkongen
+
+livingroom_flowers:
+  name: 'Livingroom flowers'
+  view: false
+  entities:
+  - switch.flower_1
+  - switch.flower_2
+
+livingroom_tv_corner:
+  name: 'Tv and corner lamps'
+  view: false
+  entities:
+  - light.floorlamp_corner
+  - light.tvleft
+  - light.tvright
+
+kitchen:
+  name: 'Kitchen'
+  view: false
+  entities:
+  - switch.kitchen
+
+guestroom:
+  name: 'Guestroom'
+  view: false
+  entities:
+  - switch.guestroom
+
+mancave:
+  name: 'Pers room'
+  view: false
+  entities:
+  - switch.per_window
+  - switch.per_shelf
+
+womancave:
+  name: 'Marias room'
+  view: false
+  entities:
+  - switch.mia_catlamp
+
+chili:
+  name: 'Chili lamp'
+  view: false
+  entities:
+  - switch.chili
+
+night:
+  name: Nighty
+  view: false
+  entities:
+  - media_player.samsung_led46_ue46f5500
+  - group.all_switches
+  - group.all_lights
+
+testgroup:
+  name: Testgroup
+  view: true
+  entities:
+    - sensor.time
+    - sensor.date
+    - sensor.utc
+
+media_view:
+  name: Mediaplayers
+  view: true
+  entities:
+    - media_player.samsung_led46_ue46f5500
+    - media_player.spotify
+    - media_player.controller
+    - media_player.kok
+    - media_player.vardagsrumpi
+    - media_player.garageute
+    - media_player.living_room
+
+mediaplayers:
+  name: Media
+  view: false
+  entities:
+    - media_player.samsung_led46_ue46f5500
+    - media_player.spotify
+    - media_player.controller
+    - media_player.kok
+    - media_player.vardagsrumpi
+    - media_player.garageute
+    - media_player.living_room

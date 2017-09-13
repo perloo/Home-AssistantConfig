@@ -1,0 +1,119 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home of Maria and Per
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 11
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret api_password
+  ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
+  ssl_key: /home/homeassistant/.homeassistant/privkey.pem
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+  exclude:
+    entities:
+      - sensor.yr
+      - sun.sun
+      - sensor.time
+      - sensor.date
+      - sensor.yr_symbol
+      - sensor.ha_uptime
+      - sensor.time_date
+      - sensor.worldclock
+#
+logbook:
+  exclude:
+    entities:
+      - sensor.yr
+      - sun.sun
+      - sensor.time
+      - sensor.date
+      - sensor.yr_symbol
+      - sensor.ha_uptime
+      - sensor.time_date
+      - sensor.worldclock
+
+# Track the sun
+sun:
+
+tellstick:
+  signal_repetitions: 3
+
+# Weather Prediction
+sensor:
+  - platform: yr
+    name: 'Weather'
+
+  - platform: tellstick
+    135: Greenhouse
+    only_named: True
+
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+
+  - platform: worldclock
+    time_zone: Etc/UTC
+    name: 'UTC'
+
+switch:
+  - platform: tellstick
+
+# Text to speech
+tts:
+  platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+
+panel_iframe:
+  logitechmediaserver:
+    title: 'Squeeze'
+    url: 'http://192.168.1.93:9000'
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+
+scene:
+  - name: 'Lets make it night'
+    entities:
+      group.night: off
+

@@ -1,0 +1,116 @@
+
+- id: turn_on_flower_switches
+  alias: 'Turn on flower lamps'
+  trigger:
+    platform: time
+    at: '05:30'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.livingroom_flowers
+
+- id: turn_off_flower_switches
+  alias: 'Turn off flower lamps'
+  trigger:
+    platform: time
+    at: '22:30'
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.livingroom_flowers
+
+
+- id: turn_on_kitchen_lamp_in_the_morning
+  trigger:
+    platform: time
+    at: '05:45'
+#  condition:
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'above_horizon'
+  action:
+    service: switch.turn_on
+    entity_id:
+      - switch.kitchen
+
+- id: turn_off_kitchen_lamp_in_the_morning
+  trigger:
+    platform: time
+    at: '08:45'
+#  condition:
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'above_horizon'
+  action:
+    service: switch.turn_off
+    entity_id:
+      - switch.kitchen
+
+- id: turn_off_all_if_not_playing
+  trigger:
+    platform: time
+    at: '21:43'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: media_player.samsung_led46_ue46f5500
+      state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.kok
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.kok
+        state: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.night
+
+
+
+
+- id: light_on_in_the_evening_pt1
+  alias: 'Light on in the evening 1'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:15:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.livingroom_switches
+
+- id: light_on_in_the_evening_pt2
+  alias: 'Light on in the evening 2'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.livingroom_tv_corner
+
+
+
+
+
+- id: turn_off_sb_when_turning_on_tv
+  alias: 'Turn of music when turning on TV'
+  trigger:
+  - platform: state
+    entity_id: media_player.samsung_led46_ue46f5500
+    to: 'on'
+  action:
+    service: media_player.media_pause
+    entity_id: 
+      - media_player.vardagsrumpi
+      - media_player.kok
+
+
