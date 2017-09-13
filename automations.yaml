@@ -47,7 +47,7 @@
 - id: turn_off_all_if_not_playing
   trigger:
     platform: time
-    at: '21:43'
+    at: '22:30'
   condition:
     condition: and
     conditions:
@@ -75,36 +75,55 @@
     entity_id: group.night
 
 
+#- id: light_on_in_the_evening_pt1
+#  alias: 'Light on in the evening 1'
+#  trigger:
+#    - platform: sun
+#      event: sunset
+#      offset: '-01:15:00'
+#  action:
+#    service: homeassistant.turn_on
+#    entity_id: group.livingroom_switches
 
+#- id: light_on_in_the_evening_pt2
+#  alias: 'Light on in the evening 2'
+#  trigger:
+#    - platform: sun
+#      event: sunset
+#      offset: '-01:00:00'
+#  action:
+#    service: homeassistant.turn_on
+#    entity_id: group.livingroom_tv_corner
 
-- id: light_on_in_the_evening_pt1
-  alias: 'Light on in the evening 1'
+- id: light_on_in_the_evening_pt3
+  alias: 'Light on in the evening 3'
   trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:15:00'
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 9
   action:
     service: homeassistant.turn_on
-    entity_id: group.livingroom_switches
+    entity_id: 
+      - group.livingroom_switches 
 
-- id: light_on_in_the_evening_pt2
-  alias: 'Light on in the evening 2'
+- id: light_on_in_the_evening_pt4
+  alias: 'Light on in the evening 4'
   trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:00:00'
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 10
   action:
     service: homeassistant.turn_on
-    entity_id: group.livingroom_tv_corner
-
-
-
+    entity_id:
+      - group.livingroom_tv_corner
 
 
 - id: turn_off_sb_when_turning_on_tv
-  alias: 'Turn of music when turning on TV'
+  alias: 'Turn off music when turning on TV'
   trigger:
-  - platform: state
+    platform: state
     entity_id: media_player.samsung_tv_remote
     to: 'on'
   action:
@@ -112,5 +131,27 @@
     entity_id: 
       - media_player.vardagsrumpi
       - media_player.kok
+
+
+- id: notify_greenhouse_temp_changed
+  alias: 'Greenhouse temp'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      below: 5
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      below: 2
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      below: 0
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      above: 40
+  action:
+    service: notify.notify_pushbullet
+    data:
+      title: 'Temp changed'
+      message: 'Temperature: {{ states.sensor.greenhouse_temperature.state_with_unit }} Humidity:  {{ states.sensor.greenhouse_humidity.state_with_unit }}'
 
 
