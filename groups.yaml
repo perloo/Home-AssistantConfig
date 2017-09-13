@@ -66,7 +66,7 @@ night:
   name: Nighty
   view: false
   entities:
-  - media_player.samsung_led46_ue46f5500
+  - media_player.samsung_tv_remote
   - group.all_switches
   - group.all_lights
 
@@ -82,7 +82,7 @@ media_view:
   name: Mediaplayers
   view: true
   entities:
-    - media_player.samsung_led46_ue46f5500
+    - media_player.samsung_tv_remote
     - media_player.spotify
     - media_player.controller
     - media_player.kok
@@ -94,7 +94,7 @@ mediaplayers:
   name: Media
   view: false
   entities:
-    - media_player.samsung_led46_ue46f5500
+    - media_player.samsung_tv_remote
     - media_player.spotify
     - media_player.controller
     - media_player.kok

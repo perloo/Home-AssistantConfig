@@ -52,7 +52,7 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: media_player.samsung_led46_ue46f5500
+      entity_id: media_player.samsung_tv_remote
       state: 'off'
     - condition: or
       conditions:
@@ -105,7 +105,7 @@
   alias: 'Turn of music when turning on TV'
   trigger:
   - platform: state
-    entity_id: media_player.samsung_led46_ue46f5500
+    entity_id: media_player.samsung_tv_remote
     to: 'on'
   action:
     service: media_player.media_pause
