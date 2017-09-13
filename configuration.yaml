@@ -121,3 +121,15 @@ scene:
     entities:
       group.night: off
 
+device_tracker:
+  - platform: asuswrt
+    host: 192.168.1.1
+    protocol: telnet
+    username: !secret asus_username
+    password: !secret asus_password
+
+notify:
+  - name: notify_pushbullet
+    platform: pushbullet
+    api_key: !secret pushbullet_api_key
+
