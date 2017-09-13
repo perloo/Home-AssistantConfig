@@ -118,6 +118,7 @@
     service: homeassistant.turn_on
     entity_id:
       - group.livingroom_tv_corner
+      - group.kitchen
 
 
 - id: turn_off_sb_when_turning_on_tv
