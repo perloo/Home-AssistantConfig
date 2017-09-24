@@ -1,2 +1,5 @@
 sensor.date:
   icon: mdi:calendar
+media_player.samsung_tv_remote:
+  friendly_name: Samsung TV
+  hidden: true

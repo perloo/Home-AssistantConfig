@@ -31,6 +31,21 @@ livingroom_tv_corner:
   - light.tvleft
   - light.tvright
 
+diner_table:
+  name: 'Diner table'
+  view: false
+  entities:
+  - light.diner_table_1
+  - light.diner_table_2
+  - light.diner_table_3
+
+almost_all_lights:
+  name: 'All lights except bedroom wall'
+  view: false
+  entities:
+  - group.livingroom_tv_corner
+  - group.diner_table
+
 kitchen:
   name: 'Kitchen'
   view: false
@@ -68,7 +83,7 @@ night:
   entities:
   - media_player.samsung_tv_remote
   - group.all_switches
-  - group.all_lights
+  - group.almost_all_lights
 
 testgroup:
   name: Testgroup

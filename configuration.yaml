@@ -1,6 +1,6 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home of Maria and Per
+  name: Home
   # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude_home
   longitude: !secret longitude_home
@@ -11,8 +11,10 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
 
+  customize: !include customize.yaml
+
 # Show links to resources in log and frontend
-introduction:
+#introduction:
 
 # Enables the frontend
 frontend:
@@ -127,9 +129,19 @@ device_tracker:
     protocol: telnet
     username: !secret asus_username
     password: !secret asus_password
+  - platform: owntracks
+
 
 notify:
   - name: notify_pushbullet
     platform: pushbullet
     api_key: !secret pushbullet_api_key
+
+input_slider:
+  diner_table_brightness:
+    name: 'Diner table brightness'
+    initial: 0
+    min: 0
+    max: 255
+    step: 10
 
