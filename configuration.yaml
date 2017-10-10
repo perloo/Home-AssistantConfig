@@ -138,10 +138,17 @@ notify:
     api_key: !secret pushbullet_api_key
 
 input_slider:
-  diner_table_brightness:
-    name: 'Diner table brightness'
+  dinner_table_brightness:
+    name: 'Dinner table brightness'
     initial: 0
     min: 0
     max: 255
     step: 10
 
+input_boolean:
+  bedtime:
+    name: 'It is bedtime'
+    initial: off
+  test:
+    name: 'only for testing'
+    initial: off

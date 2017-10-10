@@ -1,3 +1,41 @@
+- id: test
+  alias: 'test'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.test
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: media_player.samsung_tv_remote
+      state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.kok
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.kok
+        state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.night
+    - delay: '00:10:00'
+    - service: light.turn_off
+      entity_id: light.bedroom_wall
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.bedtime
+
+
 
 - id: turn_on_flower_switches
   alias: 'Turn on flower lamps'
@@ -40,10 +78,6 @@
   trigger:
     platform: time
     at: '08:45'
-#  condition:
-#    - condition: state
-#      entity_id: sun.sun
-#      state: 'above_horizon'
   action:
     service: switch.turn_off
     entity_id:
@@ -58,6 +92,38 @@
     entity_id:
       - light.bedroom_wall
 
+- id: turn_off_all_if_not_playing_music_later
+  alias: 'Turn off all if not playing music, later...'
+  trigger:
+    platform: time
+    at: '23:30'
+  condition:
+    condition: and
+    conditions:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.kok
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.kok
+        state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.night
+    - delay: '00:10:00'
+    - service: light.turn_off
+      entity_id: light.bedroom_wall
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.bedtime
 
 - id: turn_off_all_if_not_playing
   alias: 'Turn off all if not playing'
@@ -87,9 +153,13 @@
         entity_id: media_player.kok
         state: 'off'
   action:
-    service: homeassistant.turn_off
-    entity_id: group.night
-
+    - service: homeassistant.turn_off
+      entity_id: group.night
+    - delay: '00:10:00'
+    - service: light.turn_off
+      entity_id: light.bedroom_wall
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.bedtime
 
 #- id: light_on_in_the_evening_pt1
 #  alias: 'Light on in the evening 1'
@@ -117,10 +187,12 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 8
+    below: 7
   action:
     service: light.turn_on
-    entity_id: light.bedroom_wall
+    data_template:
+      entity_id: light.bedroom_wall
+      brightness: '164'
 
 - id: light_on_in_the_evening_pt3
   alias: 'Light on in the evening 3'
@@ -186,21 +258,37 @@
       message: 'Temperature: {{ states.sensor.greenhouse_temperature.state_with_unit }} Humidity:  {{ states.sensor.greenhouse_humidity.state_with_unit }}'
 
 
-- id: brightness_diner_table
-  alias: 'Change brightness diner table'
+- id: brightness_dinner_table
+  alias: 'Change brightness dinner table'
   trigger:
     - platform: state
-      entity_id: input_slider.diner_table_brightness
+      entity_id: input_slider.dinner_table_brightness
   action:
     - service: light.turn_on
       data_template:
         entity_id: light.dinner_table_1
-        brightness: '{{ states.input_slider.diner_table_brightness.state | int }}'
+        brightness: '{{ states.input_slider.dinner_table_brightness.state | int }}'
     - service: light.turn_on
       data_template:
         entity_id: light.dinner_table_2
-        brightness: '{{ states.input_slider.diner_table_brightness.state | int }}'
+        brightness: '{{ states.input_slider.dinner_table_brightness.state | int }}'
     - service: light.turn_on
       data_template:
         entity_id: light.dinner_table_3
-        brightness: '{{ states.input_slider.diner_table_brightness.state | int }}'
+        brightness: '{{ states.input_slider.dinner_table_brightness.state | int }}'
+
+- id: it_is_bedtime
+  alias: 'It is time to go to bed'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedtime
+      to: 'on'
+  action:
+    - service: homeassistant.turn_off 
+      entity_id: group.night
+    - delay: '00:10:00'
+    - service: light.turn_off
+      entity_id: light.bedroom_wall
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.bedtime
+
