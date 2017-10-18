@@ -15,6 +15,7 @@ livingroom_switches:
   - switch.livingroom_3
   - switch.livingroom_4
   - switch.balkongen
+  - switch.Dinner_table_window
 
 livingroom_flowers:
   name: 'Livingroom flowers'
@@ -32,7 +33,7 @@ livingroom_tv_corner:
   - light.tvright
 
 dinner_table:
-  name: 'Diner table'
+  name: 'Dinner table'
   view: false
   entities:
   - light.dinner_table_1
@@ -81,23 +82,28 @@ night:
   name: Nighty
   view: false
   entities:
-  - media_player.samsung_tv_remote
+  - media_player.samsung_led46_ue46f5500
   - group.all_switches
   - group.almost_all_lights
 
-testgroup:
-  name: Testgroup
+lamps_view:
+  name: Lamps
   view: true
   entities:
-    - sensor.time
-    - sensor.date
-    - sensor.utc
+  - group.livingroom
+  - group.dinner_table
+  - group.kitchen
+  - group.guestroom
+  - group.mancave
+  - group.womancave
+  - light.bedroom_wall
+  - input_boolean.bedtime
 
 media_view:
   name: Mediaplayers
   view: true
   entities:
-    - media_player.samsung_tv_remote
+    - media_player.samsung_led46_ue46f5500
     - media_player.spotify
     - media_player.controller
     - media_player.kok
@@ -109,7 +115,7 @@ mediaplayers:
   name: Media
   view: false
   entities:
-    - media_player.samsung_tv_remote
+    - media_player.samsung_led46_ue46f5500
     - media_player.spotify
     - media_player.controller
     - media_player.kok

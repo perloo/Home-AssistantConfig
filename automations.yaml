@@ -8,7 +8,7 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: media_player.samsung_tv_remote
+      entity_id: media_player.samsung_led46_ue46f5500
       state: 'off'
     - condition: or
       conditions:
@@ -134,7 +134,7 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: media_player.samsung_tv_remote
+      entity_id: media_player.samsung_led46_ue46f5500
       state: 'off'
     - condition: or
       conditions:
@@ -224,7 +224,7 @@
   alias: 'Turn off music when turning on TV'
   trigger:
     platform: state
-    entity_id: media_player.samsung_tv_remote
+    entity_id: media_player.samsung_led46_ue46f5500
     to: 'on'
   action:
     service: media_player.media_pause
@@ -286,7 +286,7 @@
   action:
     - service: homeassistant.turn_off 
       entity_id: group.night
-    - delay: '00:10:00'
+    - delay: '00:15:00'
     - service: light.turn_off
       entity_id: light.bedroom_wall
     - service: homeassistant.turn_off

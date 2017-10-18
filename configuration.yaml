@@ -114,9 +114,9 @@ media_player:
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
 
-  - platform: samsungtv
-    host: 192.168.1.80
-    mac: !secret samsung_tv_mac
+#  - platform: samsungtv
+#    host: 192.168.1.80
+#    mac: !secret samsung_tv_mac
 
 scene:
   - name: 'Lets make it night'
@@ -129,7 +129,7 @@ device_tracker:
     protocol: telnet
     username: !secret asus_username
     password: !secret asus_password
-  - platform: owntracks
+#  - platform: owntracks
 
 
 notify:
