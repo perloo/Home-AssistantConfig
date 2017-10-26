@@ -70,6 +70,11 @@ logbook:
       - sensor.time_date
       - sensor.worldclock
 
+#logger:
+#  default: warn
+#  logs:
+#    homeassistant.components.media_player: error
+
 # Track the sun
 sun:
 
