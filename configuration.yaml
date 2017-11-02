@@ -25,8 +25,10 @@ config:
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret api_password
-  ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
-  ssl_key: /home/homeassistant/.homeassistant/privkey.pem
+  #ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
+  #ssl_key: /home/homeassistant/.homeassistant/privkey.pem
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
 
@@ -38,6 +40,8 @@ http:
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
+
+map:
 
 # Discover some devices automatically
 discovery:
@@ -95,10 +99,6 @@ sensor:
       - 'time'
       - 'date'
 
-  - platform: worldclock
-    time_zone: Etc/UTC
-    name: 'UTC'
-
 switch:
   - platform: tellstick
 
@@ -123,10 +123,10 @@ media_player:
 #    host: 192.168.1.80
 #    mac: !secret samsung_tv_mac
 
-scene:
-  - name: 'Lets make it night'
-    entities:
-      group.night: off
+#scene:
+#  - name: 'Lets make it night'
+#    entities:
+#      group.night: off
 
 device_tracker:
   - platform: asuswrt
@@ -134,7 +134,7 @@ device_tracker:
     protocol: telnet
     username: !secret asus_username
     password: !secret asus_password
-#  - platform: owntracks
+  - platform: owntracks_http
 
 
 notify:
@@ -142,7 +142,7 @@ notify:
     platform: pushbullet
     api_key: !secret pushbullet_api_key
 
-input_slider:
+input_number:
   dinner_table_brightness:
     name: 'Dinner table brightness'
     initial: 0
@@ -157,3 +157,14 @@ input_boolean:
   test:
     name: 'only for testing'
     initial: off
+
+input_select:
+  radio_select:
+    name: 'Select a radio station'
+    options:
+     - None
+     - P4 Stockholm
+     - P4 Västerbotten
+    initial: None
+
+
