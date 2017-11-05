@@ -85,19 +85,7 @@ sun:
 tellstick:
   signal_repetitions: 3
 
-# Weather Prediction
-sensor:
-  - platform: yr
-    name: 'Weather'
-
-  - platform: tellstick
-    135: Greenhouse
-    only_named: True
-
-  - platform: time_date
-    display_options:
-      - 'time'
-      - 'date'
+sensor: !include_dir_merge_list sensor
 
 switch:
   - platform: tellstick
@@ -114,57 +102,9 @@ panel_iframe:
     title: 'Squeeze'
     url: 'http://192.168.1.93:9000'
 
-media_player:
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_client_secret
-
-#  - platform: samsungtv
-#    host: 192.168.1.80
-#    mac: !secret samsung_tv_mac
-
-#scene:
-#  - name: 'Lets make it night'
-#    entities:
-#      group.night: off
-
-device_tracker:
-  - platform: asuswrt
-    host: 192.168.1.1
-    protocol: telnet
-    username: !secret asus_username
-    password: !secret asus_password
-  - platform: owntracks_http
-
-
-notify:
-  - name: notify_pushbullet
-    platform: pushbullet
-    api_key: !secret pushbullet_api_key
-
-input_number:
-  dinner_table_brightness:
-    name: 'Dinner table brightness'
-    initial: 0
-    min: 0
-    max: 255
-    step: 10
-
-input_boolean:
-  bedtime:
-    name: 'It is bedtime'
-    initial: off
-  test:
-    name: 'only for testing'
-    initial: off
-
-input_select:
-  radio_select:
-    name: 'Select a radio station'
-    options:
-     - None
-     - P4 Stockholm
-     - P4 Västerbotten
-    initial: None
-
-
+media_player: !include media_player.yaml
+device_tracker: !include device_tracker.yaml
+notify: !include notify.yaml
+input_number: !include input_number.yaml
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml

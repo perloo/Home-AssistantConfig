@@ -1,0 +1,11 @@
+- platform: yr
+  name: 'Weather'
+
+- platform: tellstick
+  135: Greenhouse
+  only_named: True
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'

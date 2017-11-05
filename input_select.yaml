@@ -1,0 +1,8 @@
+radio_select:
+  name: 'Select a radio station'
+  options:
+   - None
+   - P4 Stockholm
+   - P4 Västerbotten
+  initial: None
+

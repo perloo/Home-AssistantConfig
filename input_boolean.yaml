@@ -1,0 +1,6 @@
+bedtime:
+  name: 'It is bedtime'
+  initial: off
+test:
+  name: 'only for testing'
+  initial: off
