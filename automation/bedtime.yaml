@@ -1,0 +1,27 @@
+- id: it_is_bedtime
+  alias: 'It is time to go to bed'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedtime
+      to: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.night
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_wall
+        brightness: 0
+        transition: 780
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upstairs_wall
+        brightness: 0
+        transition: 780
+    - delay: '00:14:00'
+    - service: light.turn_off
+      entity_id: light.bedroom_wall
+    - service: light.turn_off
+      entity_id: light.hall_upstairs_wall
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.bedtime
+

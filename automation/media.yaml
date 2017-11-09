@@ -1,0 +1,49 @@
+- id: radio_select_p4_sthlm
+  alias: 'p4 sthlm selected'
+  trigger:
+    - platform: state
+      entity_id: input_select.radio_select
+      to: "P4 Stockholm"
+  action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.kok
+        media_content_id: http://opml.radiotime.com/Tune.ashx?id=s47341&partnerId=16
+        media_content_type: CHANNEL
+
+- id: radio_select_p4_vstbtn
+  alias: 'p4 vstbtn selected'
+  trigger:
+    - platform: state
+      entity_id: input_select.radio_select
+      to: "P4 V  sterbotten"
+  action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.kok
+        media_content_id: http://opml.radiotime.com/Tune.ashx?id=s1295&partnerId=16
+        media_content_type: CHANNEL
+
+- id: radio_select_none
+  alias: 'radio select none'
+  trigger:
+    - platform: state
+      entity_id: input_select.radio_select
+      to: "None"
+  action:
+    - service: media_player.media_play_pause
+      data:
+        entity_id: media_player.kok
+
+- id: turn_off_sb_when_turning_on_tv
+  alias: 'Turn off music when turning on TV'
+  trigger:
+    platform: state
+    entity_id: media_player.samsung_led46_ue46f5500
+    to: 'on'
+  action:
+    service: media_player.media_pause
+    entity_id:
+      - media_player.vardagsrumpi
+      - media_player.kok
+

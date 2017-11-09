@@ -1,0 +1,23 @@
+- id: turn_on_hall_upstairs_wall_in_the_morning
+  alias: 'Turn on hall upstairs in the morning'
+  trigger:
+    platform: time
+    at: '05:45'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upstairs_wall
+        brightness: 0
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upstairs_wall
+        brightness: 164
+        transition: 1800

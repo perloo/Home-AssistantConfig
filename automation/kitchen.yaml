@@ -1,0 +1,23 @@
+- id: turn_on_kitchen_lamp_in_the_morning
+  alias: 'Turn on kitchen lamp in the morning'
+  trigger:
+    platform: time
+    at: '05:45'
+#  condition:
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'above_horizon'
+  action:
+    service: switch.turn_on
+    entity_id:
+      - switch.kitchen
+
+- id: turn_off_kitchen_lamp_in_the_morning
+  trigger:
+    platform: time
+    at: '08:45'
+  action:
+    service: switch.turn_off
+    entity_id:
+      - switch.kitchen
+

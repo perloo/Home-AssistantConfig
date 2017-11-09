@@ -1,0 +1,44 @@
+- id: light_on_in_the_evening_pt3
+  alias: 'Light on in the evening 3'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 9
+  action:
+    service: homeassistant.turn_on
+    entity_id:
+      - group.livingroom_switches
+
+- id: light_on_in_the_evening_pt4
+  alias: 'Light on in the evening 4'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 10
+  action:
+    service: homeassistant.turn_on
+    entity_id:
+      - group.livingroom_tv_corner
+      - group.kitchen
+
+- id: brightness_dinner_table
+  alias: 'Change brightness dinner table'
+  trigger:
+    - platform: state
+      entity_id: input_number.dinner_table_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.dinner_table_1
+        brightness: '{{ states.input_number.dinner_table_brightness.state | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.dinner_table_2
+        brightness: '{{ states.input_number.dinner_table_brightness.state | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.dinner_table_3
+        brightness: '{{ states.input_number.dinner_table_brightness.state | int }}'
+

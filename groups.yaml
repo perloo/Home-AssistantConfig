@@ -1,3 +1,18 @@
+marias_room:
+  name: 'Marias room'
+  view: false
+  entities:
+  - group.marias_ceiling
+  - switch.mia_catlamp
+
+marias_ceiling:
+  name: 'Marias ceiling'
+  view: false
+  entities:
+  - light.marias_ceiling_1
+  - light.marias_ceiling_2
+  - light.marias_ceiling_3
+
 livingroom:
   name: Livingroom
   view: false
@@ -5,6 +20,7 @@ livingroom:
   - group.livingroom_switches
   - group.livingroom_flowers
   - group.livingroom_tv_corner
+  - group.dinner_table
 
 livingroom_switches:
   name: 'Livingroom switches'
@@ -32,7 +48,7 @@ livingroom_tv_corner:
   - light.tvleft
   - light.tvright
 
-dinner_table:
+livingroom_dinner_table:
   name: 'Dinner table'
   view: false
   entities:
@@ -44,8 +60,8 @@ almost_all_lights:
   name: 'All lights except bedroom wall'
   view: false
   entities:
-  - group.livingroom_tv_corner
-  - group.dinner_table
+  - group.livingroom
+  - group.marias_room
 
 kitchen:
   name: 'Kitchen'
@@ -59,18 +75,13 @@ guestroom:
   entities:
   - switch.guestroom
 
-mancave:
+pers_room:
   name: 'Pers room'
   view: false
   entities:
   - switch.per_window
   - switch.per_shelf
-
-womancave:
-  name: 'Marias room'
-  view: false
-  entities:
-  - switch.mia_catlamp
+  - group.chili
 
 chili:
   name: 'Chili lamp'
@@ -95,8 +106,9 @@ lamps_view:
   - group.kitchen
   - group.guestroom
   - group.mancave
-  - group.womancave
+  - group.marias_room
   - light.bedroom_wall
+  - light.hall_upstairs_wall
   - input_boolean.bedtime
 
 media_view:

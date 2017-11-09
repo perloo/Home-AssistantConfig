@@ -1,3 +1,49 @@
+- id: test_hall_upstairs
+  alias: 'testing 20171107'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.test
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upper_wall
+        brightness: 0
+        transition: 780
+    - service: light.turn_on
+      data:
+        entity_id: light.dinner_table_1
+        brightness: 0
+        transition: 780
+    - delay: '00:13:40'
+    - service: light.turn_off
+      entity_id: light.dinner_table_1
+    - service: light.turn_off
+      entity_id: light.hall_upper_wall
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.test
+
+
+- id: turn_on_hall_upstairs_wall_in_the_morning
+  alias: 'Turn on hall upstairs in the morning'
+  trigger:
+    platform: time
+    at: '05:45'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upper_wall
+        brightness: 164
+        transition: 1800
+
 - id: radio_select_p4_sthlm
   alias: 'p4 sthlm selected'
   trigger:
@@ -35,25 +81,6 @@
       data:
         entity_id: media_player.kok
 
-- id: test
-  alias: 'test'
-  trigger:
-    - platform: state
-      entity_id: input_boolean.test
-      to: 'on'
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.dinner_table_1
-    - service: light.turn_on
-      data:
-        entity_id: light.dinner_table_2
-        brightness: 0
-        transition: 30
-    - delay: '00:00:30'
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.test
-
-
 
 - id: turn_on_flower_switches
   alias: 'Turn on flower lamps'
@@ -75,7 +102,7 @@
     service: homeassistant.turn_off
     entity_id: 
       - group.livingroom_flowers
-#      - group.guestroom
+      - group.guestroom
 
 
 - id: turn_on_kitchen_lamp_in_the_morning
@@ -136,10 +163,9 @@
         state: 'off'
   action:
     - service: homeassistant.turn_off
-      entity_id: group.night
-    - delay: '00:10:00'
-    - service: light.turn_off
-      entity_id: light.bedroom_wall
+      entity_id: group.all_switches
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
     - service: homeassistant.turn_off
       entity_id: input_boolean.bedtime
 
@@ -172,31 +198,11 @@
         state: 'off'
   action:
     - service: homeassistant.turn_off
-      entity_id: group.night
-    - service: light.turn_off
-      entity_id: light.bedroom_wall
+      entity_id: group.all_switches
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
     - service: homeassistant.turn_off
       entity_id: input_boolean.bedtime
-
-#- id: light_on_in_the_evening_pt1
-#  alias: 'Light on in the evening 1'
-#  trigger:
-#    - platform: sun
-#      event: sunset
-#      offset: '-01:15:00'
-#  action:
-#    service: homeassistant.turn_on
-#    entity_id: group.livingroom_switches
-
-#- id: light_on_in_the_evening_pt2
-#  alias: 'Light on in the evening 2'
-#  trigger:
-#    - platform: sun
-#      event: sunset
-#      offset: '-01:00:00'
-#  action:
-#    service: homeassistant.turn_on
-#    entity_id: group.livingroom_tv_corner
 
 - id: light_on_in_the_evening_bedroom
   alias: 'Light on in the evening bedroom'
@@ -311,10 +317,17 @@
       data:
         entity_id: light.bedroom_wall
         brightness: 0
-        transition: 900
-    - delay: '00:15:00'
+        transition: 780
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upper_wall
+        brightness: 0
+        transition: 780
+    - delay: '00:14:00'
     - service: light.turn_off
       entity_id: light.bedroom_wall
+    - service: light.turn_off
+      entity_id: light.hall_upper_wall
     - service: homeassistant.turn_off
       entity_id: input_boolean.bedtime
 

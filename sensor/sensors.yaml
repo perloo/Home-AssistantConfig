@@ -9,3 +9,11 @@
   display_options:
     - 'time'
     - 'date'
+
+- platform: speedtest
+  minute:
+    - 26
+  monitored_conditions:
+    - ping
+    - download
+    - upload

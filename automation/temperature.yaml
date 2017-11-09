@@ -1,0 +1,28 @@
+- id: notify_greenhouse_temp_changed
+  alias: 'Greenhouse temp'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      below: 7
+      for: '00:10:00'
+#    - platform: numeric_state
+#      entity_id: sensor.greenhouse_temperature
+#      below: 5
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      below: 2
+      for: '00:10:00'
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      below: 0
+      for: '00:10:00'
+    - platform: numeric_state
+      entity_id: sensor.greenhouse_temperature
+      above: 40
+      for: '00:10:00'
+  action:
+    service: notify.notify_pushbullet
+    data:
+      title: 'Temp changed'
+      message: 'Temperature: {{ states.sensor.greenhouse_temperature.state_with_unit }} Humidity:  {{ states.sensor.greenhouse_humidity.state_with_unit }}'
+
