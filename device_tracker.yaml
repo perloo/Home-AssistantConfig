@@ -3,4 +3,4 @@
   protocol: telnet
   username: !secret asus_username
   password: !secret asus_password
-- platform: owntracks_http
+- platform: gpslogger

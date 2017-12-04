@@ -1,0 +1,56 @@
+testtime_bedtime:
+  alias: 'It is time to test bedtime'
+  sequence:
+#    - service: homeassistant.turn_off
+#      entity_id: group.night
+#    - service: light.turn_on
+#      data:
+#        entity_id: livingroom_dinner_table
+#        brightness: 254
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_wall
+        brightness: 0
+        transition: 66
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upstairs_wall
+        brightness: 0
+        transition: 60
+    - delay: '00:01:06'
+#    - service: light.turn_off
+#      entity_id: light.bedroom_wall
+#    - service: light.turn_off
+#      entity_id: light.hall_upstairs_wall
+#    - service: homeassistant.turn_off
+#      entity_id: input_boolean.bedtime
+
+
+testtime_wake_up:
+  alias: 'It is time to test wake up'
+  sequence:
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.bedroom_wall
+#        brightness: 1
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.hall_upstairs_wall
+#        brightness: 1
+#    - delay: '00:00:10'
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_wall
+        brightness: 254
+        transition: 1200
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upstairs_wall
+        brightness: 254
+        transition: 1200
+#    - delay: '00:21:00'
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.bedroom_wall
+#        brightness: 254
+

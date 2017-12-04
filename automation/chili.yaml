@@ -1,0 +1,70 @@
+- id: chili_on_in_the_morning
+  alias: 'Chili light on in the morning'
+  trigger:
+    platform: time
+    at: '05:30'
+  action:
+    service: switch.turn_on
+    entity_id: switch.chili
+
+- id: chili_on_in_the_morning_temp
+  alias: 'Chili light on in the morning temp'
+  trigger:
+    platform: time
+    at: '05:35'
+  action:
+    service: switch.turn_off
+    entity_id: switch.per_shelf
+
+- id: chili_on_in_the_morning_temp2
+  alias: 'Chili light on in the morning temp2'
+  trigger:
+    platform: time
+    at: '05:35'
+  action:
+    service: switch.turn_off
+    entity_id: switch.per_window
+
+- id: chili_off_in_the_morning
+  alias: 'Chili light off in the morning'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 7
+  action:
+    service: switch.turn_off
+    entity_id: switch.chili
+
+- id: chili_on_in_the_evening
+  alias: 'Chili light  on in the evening'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 7
+  action:
+    service: switch.turn_on
+    entity_id: switch.chili
+ 
+- id: chili_on_in_the_evening_temp
+  alias: 'Chili light on in the eveningtemp'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 6.9
+  action:
+    service: switch.turn_off
+    entity_id: switch.per_shelf
+
+- id: chili_on_in_the_evening_temp2
+  alias: 'Chili light on in the morning temp2'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 6.9
+  action:
+    service: switch.turn_off
+    entity_id: switch.per_window

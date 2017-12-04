@@ -4,7 +4,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 9
+    below: 7
   action:
     service: homeassistant.turn_on
     entity_id:
@@ -16,12 +16,13 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 10
+    below: 8
   action:
     service: homeassistant.turn_on
     entity_id:
       - group.livingroom_tv_corner
       - group.kitchen
+      - light.color_lamp
 
 - id: brightness_dinner_table
   alias: 'Change brightness dinner table'

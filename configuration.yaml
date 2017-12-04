@@ -18,6 +18,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
+#  javascript_version: latest
 
 # Enables configuration UI
 config:
@@ -86,6 +87,8 @@ tellstick:
   signal_repetitions: 3
 
 sensor: !include_dir_merge_list sensor
+binary_sensor:
+  platform: flic
 
 switch:
   - platform: tellstick
@@ -97,6 +100,7 @@ tts:
 group: !include groups.yaml
 #automation: !include automations.yaml
 automation: !include_dir_merge_list automation
+script: !include_dir_merge_named script/
 
 panel_iframe:
   logitechmediaserver:

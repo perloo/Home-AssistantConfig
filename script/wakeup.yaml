@@ -1,0 +1,15 @@
+wake_up:
+  alias: 'It is time to get up'
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_wall
+        brightness: 254
+        transition: 1200
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_upstairs_wall
+        brightness: 254
+        transition: 1200
+    - delay: '00:20:00'
+

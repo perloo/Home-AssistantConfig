@@ -1,0 +1,9 @@
+- id: turn_on_hall_downstairs_in_the_morning
+  alias: 'Turn on hall downstairs in the morning'
+  trigger:
+    platform: time
+    at: '05:45'
+  action:
+    service: light.turn_on
+    entity_id:
+      - light.hall_2_downstairs

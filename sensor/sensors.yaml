@@ -3,6 +3,8 @@
 
 - platform: tellstick
   135: Greenhouse
+  183: Bedroom
+  231: Other
   only_named: True
 
 - platform: time_date

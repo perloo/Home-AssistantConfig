@@ -13,6 +13,7 @@
       - switch.kitchen
 
 - id: turn_off_kitchen_lamp_in_the_morning
+  alias: 'Turn off kitchen lamp in the  morning'
   trigger:
     platform: time
     at: '08:45'

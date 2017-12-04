@@ -1,32 +1,21 @@
-- id: test_hall_upstairs
-  alias: 'testing 20171107'
+- id: test_flic
+  alias: 'testing flic'
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da736a5e
+        click_type: hold
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.test
+
+- id: test_test
+  alias: 'test test'
   trigger:
     - platform: state
       entity_id: input_boolean.test
       to: 'on'
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
   action:
-    - service: light.turn_on
-      data:
-        entity_id: light.dinner_table_1
-        brightness: 0
-        transition: 30
-    - service: light.turn_on
-      data:
-        entity_id: light.hall_upstairs_wall
-        brightness: 0
-        transition: 30
-    - delay: '00:00:40'
-    - service: light.turn_off
-      entity_id: light.dinner_table_1
-    - service: light.turn_off
-      entity_id: light.hall_upstairs_wall
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.test
+    - service: script.turn_on
+      entity_id: script.bedtime

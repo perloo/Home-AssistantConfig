@@ -16,7 +16,7 @@
   trigger:
     - platform: state
       entity_id: input_select.radio_select
-      to: "P4 V  sterbotten"
+      to: "P4 Västerbotten"
   action:
     - service: media_player.play_media
       data:
@@ -30,10 +30,35 @@
     - platform: state
       entity_id: input_select.radio_select
       to: "None"
+  condition:
+    - condition: state
+      entity_id: media_player.kok
+      state: 'playing'
   action:
     - service: media_player.media_play_pause
       data:
         entity_id: media_player.kok
+
+- id: reset_radio_select
+  alias: 'Set radio select to none when pausing SB'
+  trigger:
+    - platform: state
+      entity_id: media_player.kok
+      to: 'paused'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.radio_select
+        state: 'P4 Stockholm'
+      - condition: state
+        entity_id: input_select.radio_select
+        state: 'P4 Västerbotten' 
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.radio_select
+        option: 'None' 
 
 - id: turn_off_sb_when_turning_on_tv
   alias: 'Turn off music when turning on TV'

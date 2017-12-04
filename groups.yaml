@@ -1,3 +1,11 @@
+hall_downstairs:
+  name: 'Hall downstairs'
+  view: false
+  entities:
+  - light.hall_11_downstairs
+  - light.hall_12_downstairs
+  - light.hall_21_downstairs
+
 marias_room:
   name: 'Marias room'
   view: false
@@ -20,7 +28,8 @@ livingroom:
   - group.livingroom_switches
   - group.livingroom_flowers
   - group.livingroom_tv_corner
-  - group.dinner_table
+  - group.livingroom_dinner_table
+  - light.color_lamp
 
 livingroom_switches:
   name: 'Livingroom switches'
@@ -31,7 +40,7 @@ livingroom_switches:
   - switch.livingroom_3
   - switch.livingroom_4
   - switch.balkongen
-  - switch.Dinner_table_window
+  - switch.dinner_table_window
 
 livingroom_flowers:
   name: 'Livingroom flowers'
@@ -62,6 +71,8 @@ almost_all_lights:
   entities:
   - group.livingroom
   - group.marias_room
+  - group.hall_downstairs
+  - light.hall_ceiling_upstairs
 
 kitchen:
   name: 'Kitchen'

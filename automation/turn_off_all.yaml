@@ -22,6 +22,14 @@
       - condition: state
         entity_id: media_player.kok
         state: 'off'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: device_tracker.android7ccd8b9b5d122c88
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.samsunggalaxys7
+        state: 'not_home'
   action:
     - service: homeassistant.turn_off
       entity_id: group.all_switches
@@ -57,6 +65,14 @@
       - condition: state
         entity_id: media_player.kok
         state: 'off'
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: device_tracker.android7ccd8b9b5d122c88
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.samsunggalaxys7
+        state: 'not_home'
   action:
     - service: homeassistant.turn_off
       entity_id: group.all_switches
