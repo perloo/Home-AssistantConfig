@@ -1,3 +1,16 @@
+bedroom:
+  name: 'Bedroom'
+  view: false
+  entities:
+  - light.bedroom_wall
+
+hall_upstairs:
+  name: 'Hall upstairs'
+  view: false
+  entities:
+  - light.hall_ceiling_upstairs
+  - light.hall_upstairs_wall
+
 hall_downstairs:
   name: 'Hall downstairs'
   view: false
@@ -11,7 +24,9 @@ marias_room:
   view: false
   entities:
   - group.marias_ceiling
-  - switch.mia_catlamp
+  - switch.mia_wall
+  - switch.maria_window
+  - switch.maria_floor
 
 marias_ceiling:
   name: 'Marias ceiling'
@@ -118,8 +133,8 @@ lamps_view:
   - group.guestroom
   - group.mancave
   - group.marias_room
-  - light.bedroom_wall
-  - light.hall_upstairs_wall
+  - group.hall_upstairs
+  - group.bedroom
   - input_boolean.bedtime
 
 media_view:
@@ -133,6 +148,7 @@ media_view:
     - media_player.vardagsrumpi
     - media_player.garageute
     - media_player.living_room
+    - media_player.mias
 
 mediaplayers:
   name: Media
@@ -145,3 +161,4 @@ mediaplayers:
     - media_player.vardagsrumpi
     - media_player.garageute
     - media_player.living_room
+    - media_player.mias

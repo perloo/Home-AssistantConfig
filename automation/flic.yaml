@@ -1,4 +1,4 @@
-- id: trigger_bedtime
+- id: trigger_single_bedtime
   alias: 'trigger bedtime'
   trigger:
     - platform: event
@@ -6,6 +6,50 @@
       event_data:
         button_name: flic_80e4da736a5e
         click_type: single
+  condition:
+    condition: time
+    after: '21:00:00'
+    before: '04:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.bedtime
+
+- id: trigger_single_turn_on
+  alias: 'trigger turn on all'
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da736a5e
+        click_type: single
+  condition:
+    condition: time
+    after: '04:00:00'
+    before: '21:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.turn_on_almost_all_flic
+
+- id: trigger_double
+  alias: 'trigger turn on all'
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da736a5e
+        click_type: double
+  action:
+    - service: script.turn_on
+      entity_id: script.turn_on_almost_all_flic
+
+- id: trigger_long
+  alias: 'trigger turn off almost all'
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da736a5e
+        click_type: long
   action:
     - service: script.turn_on
       entity_id: script.bedtime

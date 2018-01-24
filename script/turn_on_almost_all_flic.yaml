@@ -1,0 +1,9 @@
+turn_on_almost_all_flic:
+  alias: 'Turn on almost all'
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id:
+        - group.livingroom
+        - group.kitchen
+        - light.bedroom_wall
+        - light.hall_upstairs_wall_2

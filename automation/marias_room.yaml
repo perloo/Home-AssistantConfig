@@ -1,0 +1,93 @@
+- id: marias_room_weekdays_morning_on
+  alias: 'Turn on Marias room weekdays in the morning'
+  trigger:
+    platform: time
+    at: '05:45'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: homeassistant.turn_on
+      entity_id:
+        - switch.mia_wall
+        - switch.maria_window
+        - switch.maria_floor
+
+- id: marias_room_weekdays_morning_off
+  alias: 'Turn off Marias room weekdays in the morning'
+  trigger:
+    platform: time
+    at: '08:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: homeassistant.turn_off
+      entity_id:               
+        - switch.mia_wall
+        - switch.maria_window
+        - switch.maria_floor
+
+- id: marias_room_weekdays_evening_on_wall
+  alias: 'Turn on Marias room weekdays in the evening wall'
+  trigger:
+    platform: time
+    at: '15:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: homeassistant.turn_on
+      entity_id:               
+        - switch.mia_wall
+
+- id: marias_room_weekdays_evening_on_other
+  alias: 'Turn on Marias room weekdays in the evening other'
+  trigger:
+    platform: time
+    at: '16:45'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: homeassistant.turn_on
+      entity_id: 
+        - switch.maria_window
+        - switch.maria_floor
+
+- id: marias_room_weekends_morning_on
+  alias: 'Turn on Marias room weekends in the morning'
+  trigger:
+    platform: time
+    at: '08:00'
+  condition:
+    condition: time
+    weekday:
+      - sat
+      - sun
+  action:
+    - service: homeassistant.turn_on
+      entity_id:               
+        - switch.mia_wall
+        - switch.maria_window
+        - switch.maria_floor
