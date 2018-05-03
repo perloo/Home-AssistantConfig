@@ -3,6 +3,11 @@ bedtime:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.night
+    - service: media_player.media_pause
+      entity_id:
+        - media_player.vardagsrumpi
+        - media_player.kok
+        - media_player.mias
     - service: light.turn_on
       data:
         entity_id: light.bedroom_wall

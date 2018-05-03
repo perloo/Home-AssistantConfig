@@ -10,6 +10,7 @@ hall_upstairs:
   entities:
   - light.hall_ceiling_upstairs
   - light.hall_upstairs_wall
+  - light.serving_cabinet
 
 hall_downstairs:
   name: 'Hall downstairs'

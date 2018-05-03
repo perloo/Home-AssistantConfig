@@ -1,6 +1,6 @@
 purge:
-  alias: 'Purge, keep 14 days'
+  alias: 'Purge, keep 10 days'
   sequence:
     - service: recorder.purge
       data:
-        keep_days: 14
+        keep_days: 10

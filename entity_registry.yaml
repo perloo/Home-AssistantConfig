@@ -1,0 +1,128 @@
+media_player.vardagsrumpi:
+  name:
+  platform: squeezebox
+  unique_id: 64:66:b3:0e:7b:db
+media_player.mias:
+  name:
+  platform: squeezebox
+  unique_id: 74:da:38:3a:1d:f0
+media_player.garageute:
+  name:
+  platform: squeezebox
+  unique_id: 00:04:20:2c:e3:43
+media_player.kok:
+  name:
+  platform: squeezebox
+  unique_id: 00:04:20:2a:f1:9b
+media_player.controller:
+  name:
+  platform: squeezebox
+  unique_id: 00:04:20:1b:e0:5d
+media_player.living_room_chrome_cast:
+  name:
+  platform: cast
+  unique_id: ac330f10-5cb5-11df-dcde-db1b8caf2a68
+light.bedroom_wall:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65544
+light.hall_ceiling_upstairs:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65563
+light.toilet_downstairs:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65558
+light.hall_11_downstairs:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65555
+light.dinner_table_1:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65541
+light.color_lamp:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65562
+light.tvleft:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65538
+light.dinner_table_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65542
+light.hall_21_downstairs:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65559
+light.marias_ceiling_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65550
+light.hall_upstairs_wall:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65565
+light.floorlamp_corner:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65539
+light.marias_ceiling_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65551
+light.tvright:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65537
+light.dinner_table_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65543
+light.hall_12_downstairs:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65556
+light.marias_ceiling_1:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c4552044001fd-65548
+light.hall_2_downstairs:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173509
+light.marias_room:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173504
+light.hall_upstairs:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173502
+light.bedroom:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173510
+light.toilet_downstairs_2:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173508
+light.hall_1_downstairs:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173505
+light.livingroom:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-158294
+light.dinner_table:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173501
+light.tradfri_group_6:
+  name:
+  platform: tradfri
+  unique_id: group-7e0c4552044001fd-173503
