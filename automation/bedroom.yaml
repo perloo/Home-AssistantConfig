@@ -4,7 +4,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    above: 7
+    above: 9
   action:
     service: light.turn_off
     entity_id:
@@ -16,7 +16,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 7
+    below: 9
   action:
     service: light.turn_on
     data_template:
