@@ -1,10 +1,13 @@
 - id: turn_off_bedroom_wall_in_the_morning
   alias: 'Turn off bedroom in the morning'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sun.sun
+#    value_template: '{{ state.attributes.elevation }}'
+#    above: 9
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    above: 9
+    platform: time
+    at: '06:45'
   action:
     service: light.turn_off
     entity_id:

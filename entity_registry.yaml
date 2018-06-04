@@ -126,3 +126,7 @@ light.tradfri_group_6:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173503
+media_player.patio:
+  name:
+  platform: squeezebox
+  unique_id: b8:27:eb:62:b0:3f

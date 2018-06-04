@@ -1,3 +1,8 @@
 sensor.date:
   icon: mdi:calendar
-
+device_tracker.desktopkcufl38_2:
+  hidden: true
+device_tracker.galaxyj52016:
+  hidden: true
+device_tracker.dc68eb02cafa:
+  hidden: true
