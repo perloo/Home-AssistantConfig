@@ -1,132 +1,180 @@
 media_player.vardagsrumpi:
+  config_entry_id:
   name:
   platform: squeezebox
   unique_id: 64:66:b3:0e:7b:db
 media_player.mias:
+  config_entry_id:
   name:
   platform: squeezebox
   unique_id: 74:da:38:3a:1d:f0
 media_player.garageute:
+  config_entry_id:
   name:
   platform: squeezebox
   unique_id: 00:04:20:2c:e3:43
 media_player.kok:
+  config_entry_id:
   name:
   platform: squeezebox
   unique_id: 00:04:20:2a:f1:9b
 media_player.controller:
+  config_entry_id:
   name:
   platform: squeezebox
   unique_id: 00:04:20:1b:e0:5d
 media_player.living_room_chrome_cast:
+  config_entry_id:
   name:
   platform: cast
   unique_id: ac330f10-5cb5-11df-dcde-db1b8caf2a68
 light.bedroom_wall:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65544
 light.hall_ceiling_upstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65563
 light.toilet_downstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65558
 light.hall_11_downstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65555
 light.dinner_table_1:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65541
 light.color_lamp:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65562
 light.tvleft:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65538
 light.dinner_table_2:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65542
 light.hall_21_downstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65559
 light.marias_ceiling_2:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65550
 light.hall_upstairs_wall:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65565
 light.floorlamp_corner:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65539
 light.marias_ceiling_3:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65551
 light.tvright:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65537
 light.dinner_table_3:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65543
 light.hall_12_downstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65556
 light.marias_ceiling_1:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: light-7e0c4552044001fd-65548
 light.hall_2_downstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173509
 light.marias_room:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173504
 light.hall_upstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173502
 light.bedroom:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173510
 light.toilet_downstairs_2:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173508
 light.hall_1_downstairs:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173505
 light.livingroom:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-158294
 light.dinner_table:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173501
 light.tradfri_group_6:
+  config_entry_id:
   name:
   platform: tradfri
   unique_id: group-7e0c4552044001fd-173503
 media_player.patio:
+  config_entry_id:
   name:
   platform: squeezebox
   unique_id: b8:27:eb:62:b0:3f
+media_player.patio_2:
+  config_entry_id:
+  name:
+  platform: squeezebox
+  unique_id: b8:27:eb:37:e5:6a
+media_player.chromecast2397:
+  config_entry_id: 91ba6bc8099c4153934df8b7c5b89330
+  name:
+  platform: cast
+  unique_id: b097d1a1-8864-43cc-0690-a65da26ea516
+media_player.chromecast6946:
+  config_entry_id: 91ba6bc8099c4153934df8b7c5b89330
+  name:
+  platform: cast
+  unique_id: 68ec1121-0528-ec65-3a9b-0da688541642
