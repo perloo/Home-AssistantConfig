@@ -28,8 +28,8 @@ http:
   api_password: !secret api_password
   #ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
   #ssl_key: /home/homeassistant/.homeassistant/privkey.pem
-  ssl_certificate: !secret ssl_certificate
-  ssl_key: !secret ssl_key
+#  ssl_certificate: !secret ssl_certificate
+#  ssl_key: !secret ssl_key
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
 
