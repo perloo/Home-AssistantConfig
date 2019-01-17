@@ -28,8 +28,8 @@ http:
   api_password: !secret api_password
   #ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
   #ssl_key: /home/homeassistant/.homeassistant/privkey.pem
-#  ssl_certificate: !secret ssl_certificate
-#  ssl_key: !secret ssl_key
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
 
@@ -106,6 +106,14 @@ panel_iframe:
   logitechmediaserver:
     title: 'Squeeze'
     url: 'http://192.168.1.93:9000'
+
+#asuswrt:
+#  host: 192.168.1.1
+#  protocol: telnet
+#  port: 23
+#  username: !secret asus_username
+#  password: !secret asus_password
+#  mode: router
 
 media_player: !include media_player.yaml
 device_tracker: !include device_tracker.yaml

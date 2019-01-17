@@ -8,20 +8,27 @@ bedtime:
         - media_player.vardagsrumpi
         - media_player.kok
         - media_player.mias
+    - delay:
+        seconds: 5
     - service: light.turn_on
       data:
         entity_id: light.bedroom_wall
         brightness: 0
         transition: 660
+    - delay:
+        seconds: 5
     - service: light.turn_on
       data:
         entity_id: light.hall_upstairs_wall
         brightness: 0
         transition: 660
-    - delay: '00:11:00'
+    - delay:
+        minutes: 11
     - service: light.turn_off
       data:
         entity_id: light.bedroom_wall
+    - delay:
+        seconds: 5
     - service: light.turn_off
       data:
         entity_id: light.hall_upstairs_wall

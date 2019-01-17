@@ -136,7 +136,8 @@ lamps_view:
   - group.marias_room
   - group.hall_upstairs
   - group.bedroom
-  - input_boolean.bedtime
+  #- input_boolean.bedtime
+  - script.bedtime
 
 media_view:
   name: Mediaplayers

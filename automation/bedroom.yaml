@@ -7,7 +7,7 @@
 #    above: 9
   trigger:
     platform: time
-    at: '06:45'
+    at: '07:45'
   action:
     service: light.turn_off
     entity_id:
@@ -19,7 +19,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 9
+    below: 7
   action:
     service: light.turn_on
     data_template:
