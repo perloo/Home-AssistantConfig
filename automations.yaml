@@ -1,1 +1,169 @@
-[]
+- id: '1551269473165'
+  alias: Bedroom Turn Off In The Morning
+  trigger:
+  - at: 08:15
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.bedroom_wall
+    service: light.turn_off
+- id: '1551270218568'
+  alias: Bedroom Turn On In The Evening
+  trigger:
+  - below: '7'
+    entity_id: sun.sun
+    platform: numeric_state
+    value_template: '{{ state.attributes.elevation }}'
+  condition: []
+  action:
+  - data:
+      brightness: '192'
+      entity_id: light.bedroom_wall
+    service: light.turn_on
+- id: '1551271192519'
+  alias: Livingroom Turn On Flower
+  trigger:
+  - at: 05:30
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id:
+      - group.livingroom_flowers
+      - group.guestroom
+    service: homeassistant.turn_on
+- id: '1551271447588'
+  alias: Hall Downstairs Turn On In The Morning
+  trigger:
+  - at: 05:45
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.hall_2_1_downstairs
+    service: homeassistant.turn_on
+- id: '1551271984254'
+  alias: Serving Cabinet Turn On In The Evening
+  trigger:
+  - at: '15:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.serving_cabinet
+    service: homeassistant.turn_on
+- id: '1551272232539'
+  alias: Livingroom Turn On Lights In The Evening 1
+  trigger:
+  - below: '6'
+    entity_id: sun.sun
+    platform: numeric_state
+    value_template: '{{ state.attributes.elevation }}'
+  condition: []
+  action:
+  - data:
+      entity_id: group.livingroom_switches
+    service: homeassistant.turn_on
+- id: '1551272430852'
+  alias: Livingroom Turn On Lights In The Evening 2
+  trigger:
+  - below: '7'
+    entity_id: sun.sun
+    platform: numeric_state
+    value_template: '{{ state.attributes.elevation }}'
+  condition: []
+  action:
+  - data:
+      entity_id:
+      - light.floorlamp_corner
+      - light.color_lamp
+    service: homeassistant.turn_on
+- id: '1551273291389'
+  alias: Media Turn Of Music When Turning On Livingroom TV
+  trigger:
+  - entity_id: media_player.samsung_led46_ue46f5500
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id:
+      - media_player.vardagsrumpi
+      - media_player.kok
+    service: media_player.media_pause
+- id: '1551273780348'
+  alias: Turn Of All If Not Using Media
+  trigger:
+  - at: '23:30'
+    platform: time
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: media_player.samsung_led46_ue46f5500
+      state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.vardagsrum_pi
+        state: paused
+      - condition: state
+        entity_id: media_player.vardagsrumpi
+        state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: media_player.kok
+        state: paused
+      - condition: state
+        entity_id: media_player.kok
+        state: 'off'
+  action:
+  - data:
+      entity_id:
+      - group.all_switches
+      - group.all_lights
+    service: homeassistant.turn_off
+- id: '1551274619088'
+  alias: Wake Up Light
+  trigger:
+  - at: 05:45
+    platform: time
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      entity_id: script.1551276349244
+    service: script.turn_on
+- id: '1551279839327'
+  alias: It Is bedtime
+  trigger:
+  - entity_id: input_boolean.bedtime
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: group.night
+    service: homeassistant.turn_off
+  - data:
+      brightness: '0'
+      entity_id:
+      - light.bedroom_wall
+      - light.hall_upstairs_wall
+      transition: '660'
+    service: homeassistant.turn_on
+  - delay: 00:11:00
+  - data:
+      entity_id:
+      - light.bedroom_wall
+      - light.hall_upstairs_wall
+      - input_boolean.bedtime
+    service: homeassistant.turn_off
