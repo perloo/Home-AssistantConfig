@@ -1,0 +1,120 @@
+bedroom:
+  name: 'Bedroom'
+  view: false
+  entities:
+  - light.bedroom_wall
+
+hall_upstairs:
+  name: 'Hall upstairs'
+  view: false
+  entities:
+  - light.hall_upstairs_wall
+  - light.serving_cabinet
+
+hall_downstairs:
+  name: 'Hall downstairs'
+  view: false
+  entities:
+  - light.hall_11_downstairs
+  - light.hall_12_downstairs
+  - light.hall_21_downstairs
+
+livingroom:
+  name: Livingroom
+  view: false
+  entities:
+  - group.livingroom_switches
+  - group.livingroom_flowers
+  - light.floorlamp_corner
+  - light.color_lamp
+
+livingroom_switches:
+  name: 'Livingroom switches'
+  view: false
+  entities:
+  - switch.livingroom_1
+  - switch.livingroom_2
+  - switch.livingroom_3
+  - switch.livingroom_4
+  - switch.Vardagsrum_5
+  - switch.balkongen
+
+livingroom_flowers:
+  name: 'Livingroom flowers'
+  view: false
+  entities:
+  - switch.flower_1
+  - switch.flower_2
+
+almost_all_lights:
+  name: 'All lights except bedroom wall'
+  view: false
+  entities:
+  - group.livingroom
+  - group.hall_downstairs
+
+guestroom:
+  name: 'Guestroom'
+  view: false
+  entities:
+  - switch.guestroom
+
+pers_room:
+  name: 'Pers room'
+  view: false
+  entities:
+  - switch.per_window
+  - switch.per_shelf
+  - group.chili
+
+chili:
+  name: 'Chili lamp'
+  view: false
+  entities:
+  - switch.chili
+
+night:
+  name: Nighty
+  view: false
+  entities:
+  - media_player.samsung_led46_ue46f5500
+  - group.all_switches
+  - group.almost_all_lights
+
+lamps_view:
+  name: Lamps
+  view: true
+  entities:
+  - group.livingroom
+  - group.guestroom
+  - group.mancave
+  - group.hall_upstairs
+  - group.bedroom
+  #- input_boolean.bedtime
+  - script.bedtime
+
+media_view:
+  name: Mediaplayers
+  view: true
+  entities:
+    - media_player.samsung_led46_ue46f5500
+    - media_player.spotify
+    - media_player.controller
+    - media_player.kok
+    - media_player.vardagsrumpi
+    - media_player.garageute
+    - media_player.living_room
+    - media_player.mias
+
+mediaplayers:
+  name: Media
+  view: false
+  entities:
+    - media_player.samsung_led46_ue46f5500
+    - media_player.spotify
+    - media_player.controller
+    - media_player.kok
+    - media_player.vardagsrumpi
+    - media_player.garageute
+    - media_player.living_room
+    - media_player.mias

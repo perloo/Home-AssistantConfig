@@ -38,6 +38,7 @@ tts:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+device_tracker: !include device_tracker.yaml
 
 tellstick:
   signal_repetitions: 3
