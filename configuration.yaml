@@ -46,3 +46,9 @@ tellstick:
 
 sun:
 
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+    aliases:
+        spotifylivingroom: 'Living Room'
