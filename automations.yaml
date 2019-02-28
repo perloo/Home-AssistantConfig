@@ -130,14 +130,7 @@
   trigger:
   - at: 05:45
     platform: time
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  condition: []
   action:
   - data:
       entity_id: script.1551276349244

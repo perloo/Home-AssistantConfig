@@ -77,7 +77,8 @@ night:
   name: Nighty
   view: false
   entities:
-  - media_player.samsung_led46_ue46f5500
+  #- media_player.samsung_led46_ue46f5500
+  - group.mediaplayers
   - group.all_switches
   - group.almost_all_lights
 
