@@ -160,3 +160,15 @@
       - light.hall_upstairs_wall
       - input_boolean.bedtime
     service: homeassistant.turn_off
+- id: '1551362412909'
+  alias: Squeezer Stops Playing
+  trigger:
+  - entity_id: media_player.vardagsrum_pi
+    platform: state
+    to: 'off'
+  - entity_id: media_player.vardagsrum_pi
+    platform: state
+    to: idle
+  condition: []
+  action:
+  - service: shell_command.squeeze_shuffle_off

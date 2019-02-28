@@ -30,6 +30,8 @@ sensor:
   # Weather prediction
   - platform: yr
   - platform: tellstick
+  - platform: cert_expiry
+    host: ha.perloof.com
 
 # Text to speech
 tts:
@@ -52,3 +54,7 @@ media_player:
     client_secret: !secret spotify_client_secret
     aliases:
         spotifylivingroom: 'Living Room'
+
+shell_command:
+  squeeze_shuffle_songs: bash /usr/local/bin/squeeze_shuffle_songs.sh
+  squeeze_shuffle_off: bash /usr/local/bin/squeeze_shuffle_off.sh

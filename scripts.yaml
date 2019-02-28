@@ -21,3 +21,17 @@
       - light.hall_upstairs_wall
       transition: '1200'
     service: homeassistant.turn_on
+'1551360840715':
+  alias: Random Squeezessh
+  sequence:
+  - data: {}
+    service: shell_command.squeeze_shuffle_songs
+  - data:
+      entity_id: media_player.vardagsrum_pi
+      #media_content_id: spotify:user:spotify:playlist:37i9dQZF1E4oeDAMhorMe2
+      media_content_type: playlist
+    data_template:
+      #add as many playlist or album IDs as you like
+      media_content_id: >
+       {{ ["spotify:user:spotify:playlist:37i9dQZF1E4oeDAMhorMe2", "spotify:user:hannajagger:playlist:1DPfTiRAk64d9IABydf8oX", "spotify:user:hannajagger:playlist:291LCqSK4OlLEL5iVMrBmy", "spotify:user:spotify:playlist:37i9dQZF1E4mhuKXUb6jk3"] | random}}
+    service: media_player.play_media
