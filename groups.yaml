@@ -44,7 +44,7 @@ livingroom_flowers:
   view: false
   entities:
   - switch.flower_1
-  - switch.flower_2
+#  - switch.flower_2
 
 almost_all_lights:
   name: 'All lights except bedroom wall'
