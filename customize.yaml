@@ -1,0 +1,18 @@
+switch.bedroom_window:
+  friendly_name: Bedroom window
+switch.balkongen:
+  friendly_name: Ronson and Balcony
+switch.flower_1:
+  friendly_name: Flower
+switch.flower_2:
+  friendly_name: Window 1
+switch.livingroom_1:
+  friendly_name: Window 2
+switch.vardagsrum_5:
+  friendly_name: Floor lamp (3 arms)
+switch.serving_cabinet:
+  friendly_name: Serving cabinet
+switch.per_shelf:
+  friendly_name: Shelf
+switch.per_window:
+  friendly_name: Window

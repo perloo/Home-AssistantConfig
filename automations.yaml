@@ -6,12 +6,14 @@
   condition: []
   action:
   - data:
-      entity_id: light.bedroom_wall
+      entity_id:
+      - light.bedroom_wall
+      - switch.bedroom_window
     service: light.turn_off
 - id: '1551270218568'
   alias: Bedroom Turn On In The Evening
   trigger:
-  - below: '7'
+  - below: '8'
     entity_id: sun.sun
     platform: numeric_state
     value_template: '{{ state.attributes.elevation }}'
@@ -56,7 +58,7 @@
 - id: '1551272232539'
   alias: Livingroom Turn On Lights In The Evening 1
   trigger:
-  - below: '7'
+  - below: '8'
     entity_id: sun.sun
     platform: numeric_state
     value_template: '{{ state.attributes.elevation }}'
@@ -70,7 +72,7 @@
 - id: '1551272430852'
   alias: Livingroom Turn On Lights In The Evening 2
   trigger:
-  - below: '8'
+  - below: '9'
     entity_id: sun.sun
     platform: numeric_state
     value_template: '{{ state.attributes.elevation }}'
@@ -168,6 +170,7 @@
       - light.bedroom_wall
       - light.hall_upstairs_wall
       - input_boolean.bedtime
+      - switch.bedroom_window
     service: homeassistant.turn_off
 - id: '1551362412909'
   alias: Squeezer Stops Playing
@@ -181,3 +184,21 @@
   condition: []
   action:
   - service: shell_command.squeeze_shuffle_off
+- id: '1553022498765'
+  alias: 'Bedroom window turn on in the morning '
+  trigger:
+  - at: 06:00
+    platform: time
+  condition:
+    condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      entity_id:
+      - switch.bedroom_window
+    service: homeassistant.turn_on
